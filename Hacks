@@ -1,0 +1,210 @@
+1.Remove Duplicates:
+--------------------
+vector<int> v = { 1, 1, 3, 3, 3, 10, 1, 3, 3, 7, 7, 8 };
+vector<int>::iterator ip; 
+ip = std::unique(v.begin(), v.begin() + 12); 
+v.resize(std::distance(v.begin(), ip)); 
+
+2.Random Number:
+----------------
+i)
+srand(clock());
+rand();
+ii)
+Mersenne Twister 19937 generator:-
+unsigned seed1 = std::chrono::system_clock::now().time_since_epoch().count();
+std::mt19937 rng(seed1);
+rng();
+
+3.Random shuffle:
+-----------------
+std::vector<int> myvector;
+for (int i=1; i<10; ++i) myvector.push_back(i); // 1 2 3 4 5 6 7 8 9
+std::random_shuffle ( myvector.begin(), myvector.end() ); //UNIFORM DISTRIBUTION
+shuffle(myvector.begin(), myvector.end(), rng) ;
+
+4.Next Permutation:
+-------------------
+std::string s = "aba";
+std::sort(s.begin(), s.end());
+do {
+std::cout << s << '\n';
+} while(std::next_permutation(s.begin(), s.end()));
+
+5.Character at front of a string:
+---------------------------------
+std::string::iterator it;
+string str = "hello";
+str.insert (str.end(),3,'.');   //hello...
+str.append(" world");
+
+6.Substring and find:
+---------------------
+i) 
+string str = "We think..";
+std::string str2 = str.substr (3,5); //think
+ii) 
+string str = "01234needle", str2= "needle";
+std::size_t found = str.find(str2);
+if (found!=std::string::npos)
+std::cout << "first 'needle' found at: " << found << '\n'; //5
+
+7.Fill a vector:
+---------------
+fill(v.begin(), v.end(), 0);
+v.assign(size, value);
+v.assign(first_iterator, last_iterator);
+
+8.Merge vectors:
+---------------
+vector<int> a, b;
+b.insert(b.end(), a.begin(), a.end());
+
+9.Tuple:
+--------
+std::tuple<int,char> third (std::make_tuple(20,'b'));
+std::cout << "sixth contains: " << std::get<0>(sixth);
+
+10.gcd and popcount:
+-------------------
+__gcd(a, b): Returns the 𝐺𝐶𝐷 of 𝑎 and 𝑏;
+__builtin_popcount(x) : Returns the number of set bits in x; 
+
+11.Max of 4:
+-----------
+int max_of_4 = max({a, b, c, d});
+
+12. gcalccmd:
+-------------
+gnome calculator
+
+13. reverse a string:
+--------------------
+reverse(a.begin(), a.end());
+
+14. file input and output:
+--------------------------
+ofstream outfile;
+outfile.open("afile.dat", ofstream::app | ofstream::binary);
+outfile << x;
+outfile.close();
+
+ifstream infile;
+infile.open("afile.dat");
+infile >> x;
+infile.close();
+
+ifstream infile("dummy.txt");
+if(!infile.good()){
+	cout << "File does not exist or not readable";
+}
+else cout << "Ok";
+
+15. to read whole line:
+-----------------------
+getline(cin, variablename);
+
+16. to know the range of data types:
+------------------------------------
+#include<limits>
+int imin = std::numeric_limits<int>::min(); // minimum value
+int i
+ = std::numeric_limits<int>::max();
+
+17. to populate the elements of array or vector by increasing order
+-------------------------------------------------------------------
+iota(v.begin(), v.end(), 0); //0 1 2 3 4 ...
+
+18. to increase the size of stack
+---------------------------------
+ulimit -s unlimited
+
+19. to find the size of a file
+------------------------------
+int fd = open(currentfilename.c_str(), O_RDONLY);
+struct stat stat_buf;
+fstat(fd, &stat_buf);
+return stat_buf.st_size;
+
+20. string to integer or doulbe
+--------------------------------
+double x = stod("1.23");
+int x = stoi("11234");
+
+21. to print a number in binary form:
+-------------------------------------
+bitset<32>(16); //cout << "100000";
+
+22. declare a priority queue:
+-----------------------------
+priority_queue<int, vector<int>, cmp> q; // if cmp(a, b) returns true when a < b, the top element is LARGEST					
+struct cmp{ 				//cmp is a functor(struct that overloads () )
+	bool operator()(int a, int b){
+		return a > b;
+	}
+};
+
+23. delcare a set:
+------------------
+set<int, cmp> // cmp as above (22)
+
+map<char, int, cmp> //cmp as above (22)
+
+24. print upto some length of an array of vector in gdb:
+-------------------------------------------------------
+use help and apropos after coming into gdb frame
+set print
+no need to type 'p' to print something. Use "display variable_name"
+use "jump linenumber" to move out of loop
+use "delete breakpoints numbers"; breakpoints_number are 1,2..
+use "delete display numbers"
+use "set print pretty on" to print legibly
+25. show last 100 lines of a file:
+---------------------------------
+tail -100 filename
+
+26. bitset to string:
+---------------------
+bitset<8> x(42);
+cout << x.to_string() << "\n";
+
+27. bash command from c++:
+--------------------------
+system("./a.out");
+system(blah_command.c_str());
+
+28. string in c++ to char*:
+--------------------------
+string a = "asdf";
+cout << a.c_str();
+a.c_str();
+
+29.Geometry:
+------------
+i) Distance(ax+by+c, x0, y0) = |ax0 + by0 + c|/sqrt(a*a + b*b)
+ii)cos(A) = (b*b + c*c - a*a) / 2bc
+
+30.lower_bound():
+-----------------
+auto it = lower_bound(bussiness_list.begin(), bussiness_list.end(), searchObj, cmpID);
+cmpID is class comparator(maybe).
+
+//for using in descending order
+
+vector<int> v={51,32,22,22,9,8,3,4};
+int rank=upper_bound(v.begin(),v.end(),10,greater<int>())-v.begin();
+cout<<rank<<endl; // output: 4 
+
+31.Beautiful primes:
+--------------------
+1e6+3, 1e9+7, 1e9+9, 987654319
+
+32. VIM tricks:
+---------------
+i)line numbers: set number
+ii)select a block with cursor: bring the cursor to the front of a character; press v; keep pressing Ctrl and move cursor;
+iii)
+
+***compilation option
+----------------------
+g++ -Wl,--stack=268435456 -std=c++14 main.cpp -DLOCAL
