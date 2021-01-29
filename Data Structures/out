@@ -1,0 +1,8 @@
+SegTreeWithRangeAdd.cpp: In constructor 'SegTree::SegTree(int)':
+SegTreeWithRangeAdd.cpp:27:19: error: no matching function for call to 'SegTree::build(std::vector<int>&, int, int, int&)'
+   build(a, 1, 1, n);
+                   ^
+SegTreeWithRangeAdd.cpp:38:7: note: candidate: void SegTree::build(int*, int, int, int)
+  void build(int a[], int v, int tl, int tr) {
+       ^~~~~
+SegTreeWithRangeAdd.cpp:38:7: note:   no known conversion for argument 1 from 'std::vector<int>' to 'int*'
