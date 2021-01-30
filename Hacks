@@ -205,6 +205,16 @@ i)line numbers: set number
 ii)select a block with cursor: bring the cursor to the front of a character; press v; keep pressing Ctrl and move cursor;
 iii)
 
+33. bitset power:
+-----------------
+using bs = bitset<20>;
+bs a = ("100");
+assert(a[0] == 1);
+a << 2; 100 -> 001 
+a >> 2; 001 -> 100
+a.count()
+|, &, ^ are applicable
+
 ***compilation option
 ----------------------
 g++ -Wl,--stack=268435456 -std=c++14 main.cpp -DLOCAL
