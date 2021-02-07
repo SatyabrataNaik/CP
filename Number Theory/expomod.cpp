@@ -4,6 +4,8 @@ typedef long long ll;
 typedef vector<int> vi;
 typedef pair<int, int> pi;
 
+template<typename T> T mo(T x, T y) { x %= y; return x <= 0 ? x + y : x; }
+
 ll expmod(ll x, ll n, ll mod){
 	//x ^ n % mod
 	if(n == 0) return 1;
