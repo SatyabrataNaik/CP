@@ -1,4 +1,3 @@
-@echo off
 gen > in
 a < in > out
 stupid < in > ok

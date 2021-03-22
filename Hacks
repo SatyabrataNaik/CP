@@ -215,6 +215,11 @@ a >> 2; 001 -> 100
 a.count()
 |, &, ^ are applicable
 
+34. python dictionary default
+-----------------------------
+from collections import defaultdict
+d = defaultdict(int)
+
 ***compilation option
 ----------------------
 g++ -Wl,--stack=268435456 -std=c++14 main.cpp -DLOCAL
