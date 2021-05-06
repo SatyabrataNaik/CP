@@ -15,6 +15,10 @@ Mersenne Twister 19937 generator:-
 unsigned seed1 = std::chrono::system_clock::now().time_since_epoch().count();
 std::mt19937 rng(seed1);
 rng();
+iii) 
+uniformly random:-
+uniform_int_distribution<int>  distr(range_from, range_to); \\both inclusive
+cout << distr(rng);
 
 3.Random shuffle:
 -----------------
@@ -217,8 +221,49 @@ a.count()
 
 34. python dictionary default
 -----------------------------
-from collections import defaultdict
+A) from collections import defaultdict
 d = defaultdict(int)
+
+B) python input array
+a = [int(s) for x in input().split()]
+
+C) python fractions (+,-,min,max) all possible
+from fractions import Fraction
+x = Fraction(a, b)
+assert(a == x.numerator)
+assert(b == x.denominator)
+
+y = x.limit_denominator(max_denominator=1000000) #Finds and returns the closest Fraction to self that has denominator at most max_denominator
+
+35. Maximal number of divisors of any n-digit number
+----------------------------------------------------
+4, 12, 32, 64, 128, 240, 448, 768, 1344, 2304
+
+36. python print to stderr
+--------------------------
+from __future__ import print_function
+import sys
+
+def eprint(*args, **kwargs):
+    print(*args, file=sys.stderr, **kwargs)
+
+36. lambda function c++
+------------------------
+function<void(int, int)> dfs = [&](int r, int c) { };
+    
+37. memset
+----------
+int dp[100][100];
+memset(dp, -1, sizeof(dp));
+memset(dp, 0, sizeof(dp));
+
+* JAVASCRIPT:
+--------------
+urls = document.querySelectorAll('a'); for (url in urls) console.log(urls[url].href);
+
+* commands windows shortcuts bat
+--------------------------------
+sgo, dgo, go
 
 ***compilation option
 ----------------------
