@@ -265,6 +265,29 @@ urls = document.querySelectorAll('a'); for (url in urls) console.log(urls[url].h
 --------------------------------
 sgo, dgo, go
 
+* __int128 in c++17
+--------------------
+A) cout is not present. use to_string
+B) +,-,*,/,min,max as usual
+
+* python string reverse
+-----------------------
+a = "Hello"
+reva = a[-1::-1] #reva = "olleH"
+
+* python permutations
+---------------------
+from itertools import *
+permutations('ABCD', 2)  # AB AC AD BA BC BD CA CB CD DA DB DC
+combinations('ABCD', 2) # AB AC AD BC BD CD
+permutations([1,2,3], 3)
+combinations_with_replacement([1,2,3],3)
+
+* python isprime
+-----------------
+from sympy import *
+isprime(2)
+
 ***compilation option
 ----------------------
 g++ -Wl,--stack=268435456 -std=c++14 main.cpp -DLOCAL
